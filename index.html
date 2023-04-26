@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="Kai Lee" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature converter website</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <main>
+      <form>
+        <div class="float-container">
+          <input type="number" name="degrees" autocomplete="off" required />
+          <lebal class="degrees">Degrees</lebal>
+        </div>
+
+
+        <div class="float-container">
+          <select name="type">
+            <option value="F" selected>Fahrenheit</option>
+            <option value="C">Celsius</option>
+          </select>
+          <lebal class="type">Type</lebal>
+        </div>
+
+        <button type="submit">Convert</button>
+      </form>
+
+
+      <div class="result">
+        <p>Result</p>
+        <p></p>
+      </div>
+    </main>
+  </body>
+
+  <script>
+    const form = document.querySelector("form");
+    const resultArea = document.querySelector(".result p:nth-child(2)");
+    const convert2F = degree => (degree * 1.8 + 32).toFixed(2);
+    const convert2C = degree => ((degree - 32) * 0.5556).toFixed(2);
+    const submitHandler = e => {
+        e.preventDefault();
+        const degrees = Number(e.target.degrees.value) || 0;
+        const type = e.target.type.value;
+        const strategy = {
+            C: convert2F,
+            F: convert2C,
+        };
+        const result = strategy[type](degrees);
+        resultArea.innerHTML = `${result} ${type === "C" ? "&#8457" : " &#8451"}`;
+    };
+    form.addEventListener("submit", submitHandler);
+  </script>
+
+</html>

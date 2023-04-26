@@ -1,0 +1,108 @@
+:root {
+    --desc-font-size: 0.8rem;
+    --desc-font-color: rgb(153, 153, 153);
+  }
+  
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: rgb(236, 236, 236);
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  
+  main {
+    width: 30vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    padding-top: 2rem;
+    background-color: white;
+    box-shadow: 1px 1px 5px black;
+  }
+  
+  form {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  form button {
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: blue;
+  }
+  
+  .float-container {
+    position: relative;
+  }
+  
+  .float-container * {
+    border: 1px solid lightgrey;
+    position: relative;
+  }
+  
+  .float-container input,
+  .float-container select {
+    padding: 0.75rem;
+    border-radius: 5px;
+  }
+  
+  .float-container .type {
+    position: absolute;
+    top: -1.25rem;
+    left: 0;
+    color: var(--desc-font-color);
+    font-size: var(--desc-font-size);
+    border: none;
+  }
+  
+  .float-container .degrees {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    color: var(--desc-font-color);
+    border: none;
+    transition: all 0.1s ease;
+    pointer-events: none;
+  }
+  
+  .float-container input[type="number"]:focus ~ .degrees,
+  .float-container input[type="number"]:not(:focus):valid ~ .degrees {
+    top: -1.25rem;
+    left: 0;
+    font-size: var(--desc-font-size);
+    transform: translateY(0);
+  }
+  
+  .result {
+    margin-top: 1rem;
+    min-height: 2.5rem;
+  }
+  
+  .result p:nth-child(1) {
+    font-size: var(--desc-font-size);
+    color: var(--desc-font-color);
+  }
+  .result p:nth-child(2) {
+    margin-top: 0.1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
